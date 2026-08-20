@@ -58,6 +58,21 @@ body.no-scroll {
     overflow: hidden;
 }
 
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    cursor: pointer;
+    background: none;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    outline: 1px solid var(--text-secondary);
+    border-radius: 50%;
+}
+
 /* Font Family Setup */
 header,
 body {
@@ -133,16 +148,20 @@ body,
     align-items: center;
     padding: 0.6rem 1.25rem;
     background-color: transparent;
-}
 
-.navbar::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 999;
-    background-color: var(--bg-tertiary);
-    outline: 2px solid var(--bg-primary);
-    box-shadow: 0 1px 10px var(--shadown);
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 999;
+        background-color: var(--bg-tertiary);
+        outline: 2px solid var(--bg-primary);
+        box-shadow: 0 1px 10px var(--shadown);
+    }
+
+    @media (min-width: 1024px) {
+        padding: 0.9rem 1.9rem;
+    }
 }
 
 .logo {
@@ -163,21 +182,6 @@ body,
     z-index: 1000;
 }
 
-.btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border: none;
-    cursor: pointer;
-    background: none;
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    outline: 1px solid var(--text-secondary);
-    border-radius: 50%;
-}
-
 .theme-btn {
     position: relative;
     width: 2rem;
@@ -191,93 +195,101 @@ body,
     gap: 0.25rem;
     cursor: pointer;
     transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
 
-.theme-btn.active {
-    transform: rotate(180deg);
-}
+    &.active {
+        transform: rotate(180deg);
+    }
 
-.theme-btn span:nth-child(1) {
-    position: absolute;
-    width: 0.6rem;
-    height: 0.6rem;
-    background: var(--text-primary);
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition:
-        height 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-        width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-        mask 0.4s ease,
-        -webkit-mask 0.4s ease;
-}
+    span {
+        &:nth-child(1) {
+            position: absolute;
+            width: 0.6rem;
+            height: 0.6rem;
+            background: var(--text-primary);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition:
+                height 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                mask 0.4s ease,
+                -webkit-mask 0.4s ease;
+        }
 
-.theme-btn span:nth-child(n + 2) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0.25rem;
-    height: 0.09rem;
-    background: var(--text-primary);
-    border-radius: 5px;
-    transition:
-        transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-        opacity 0.25s ease;
-}
+        &:nth-child(n + 2) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0.25rem;
+            height: 0.09rem;
+            background: var(--text-primary);
+            border-radius: 5px;
+            transition:
+                transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 0.25s ease;
+        }
 
-.theme-btn span:nth-child(2) {
-    transform: translate(calc(-50% - 8px), -50%);
-}
+        &:nth-child(2) {
+            transform: translate(calc(-50% - 8px), -50%);
+        }
 
-.theme-btn span:nth-child(3) {
-    transform: translate(calc(-50% + 8px), -50%);
-}
+        &:nth-child(3) {
+            transform: translate(calc(-50% + 8px), -50%);
+        }
 
-.theme-btn span:nth-child(4) {
-    transform: translate(-50%, calc(-50% - 8px)) rotate(90deg);
-}
+        &:nth-child(4) {
+            transform: translate(-50%, calc(-50% - 8px)) rotate(90deg);
+        }
 
-.theme-btn span:nth-child(5) {
-    transform: translate(-50%, calc(-50% + 8px)) rotate(90deg);
-}
+        &:nth-child(5) {
+            transform: translate(-50%, calc(-50% + 8px)) rotate(90deg);
+        }
 
-.theme-btn span:nth-child(6) {
-    transform: translate(calc(-50% - 6px), calc(-50% - 6px)) rotate(45deg);
-}
+        &:nth-child(6) {
+            transform: translate(calc(-50% - 6px), calc(-50% - 6px))
+                rotate(45deg);
+        }
 
-.theme-btn span:nth-child(7) {
-    transform: translate(calc(-50% + 6px), calc(-50% + 6px)) rotate(45deg);
-}
+        &:nth-child(7) {
+            transform: translate(calc(-50% + 6px), calc(-50% + 6px))
+                rotate(45deg);
+        }
 
-.theme-btn span:nth-child(8) {
-    transform: translate(calc(-50% + 6px), calc(-50% - 6px)) rotate(-45deg);
-}
+        &:nth-child(8) {
+            transform: translate(calc(-50% + 6px), calc(-50% - 6px))
+                rotate(-45deg);
+        }
 
-.theme-btn span:nth-child(9) {
-    transform: translate(calc(-50% - 6px), calc(-50% + 6px)) rotate(-45deg);
-}
+        &:nth-child(9) {
+            transform: translate(calc(-50% - 6px), calc(-50% + 6px))
+                rotate(-45deg);
+        }
+    }
 
-.theme-btn.active span:nth-child(1) {
-    height: 1rem;
-    width: 1rem;
-    -webkit-mask: radial-gradient(
-        circle at 30% 70%,
-        transparent 45%,
-        var(--text-primary) 46%
-    );
-    mask: radial-gradient(
-        circle at 30% 70%,
-        transparent 45%,
-        var(--text-primary) 46%
-    );
-    transition-delay: 0.1s;
-}
+    &.active span {
+        &:nth-child(1) {
+            height: 1rem;
+            width: 1rem;
+            -webkit-mask: radial-gradient(
+                circle at 30% 70%,
+                transparent 45%,
+                var(--text-primary) 46%
+            );
+            mask: radial-gradient(
+                circle at 30% 70%,
+                transparent 45%,
+                var(--text-primary) 46%
+            );
+            transition-delay: 0.1s;
+        }
 
-.theme-btn.active span:nth-child(n + 2) {
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    width: 0;
+        &:nth-child(n + 2) {
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            width: 0;
+        }
+    }
 }
 
 .menu-btn {
@@ -294,43 +306,49 @@ body,
     gap: 0.25rem;
     cursor: pointer;
     transition: 0.3s ease;
-}
 
-.menu-btn span {
-    width: 1rem;
-    height: 0.1rem;
-    position: absolute;
-    background: var(--text-primary);
-    transition: 0.3s ease;
-}
+    span {
+        width: 1rem;
+        height: 0.1rem;
+        position: absolute;
+        background: var(--text-primary);
+        transition: 0.3s ease;
 
-.menu-btn span:nth-child(1) {
-    transform: translateY(-5px);
-}
+        &:nth-child(1) {
+            transform: translateY(-5px);
+        }
 
-.menu-btn span:nth-child(2) {
-    transform: translateY(0);
-}
+        &:nth-child(2) {
+            transform: translateY(0);
+        }
 
-.menu-btn span:nth-child(3) {
-    transform: translateY(5px);
-}
+        &:nth-child(3) {
+            transform: translateY(5px);
+        }
+    }
 
-.menu-btn.open {
-    border-radius: 50%;
-}
+    &.open {
+        border-radius: 50%;
+    }
 
-.menu-btn.open span:nth-child(1) {
-    transform: rotate(45deg);
-}
+    &.open span {
+        &:nth-child(1) {
+            transform: rotate(45deg);
+        }
 
-.menu-btn.open span:nth-child(2) {
-    opacity: 0;
-    width: 0;
-}
+        &:nth-child(2) {
+            opacity: 0;
+            width: 0;
+        }
 
-.menu-btn.open span:nth-child(3) {
-    transform: rotate(-45deg);
+        &:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        display: none;
+    }
 }
 
 .nav-links {
@@ -349,18 +367,33 @@ body,
     list-style: none;
     transform: translateY(-150%);
     transition: transform 0.4s ease;
-}
 
-.nav-links a {
-    display: flex;
-    text-decoration: none;
-    color: var(--text-primary);
-    gap: 0.6rem;
-    font-size: 1.3rem;
-}
+    &.active {
+        transform: translateY(0);
+    }
+    
+    a {
+        display: flex;
+        text-decoration: none;
+        color: var(--text-primary);
+        gap: 0.6rem;
+        font-size: 1.3rem;
+    }
 
-.nav-links.active {
-    transform: translateY(0);
+    @media (min-width: 1024px) {
+        position: sticky;
+        top: auto;
+        left: auto;
+        height: auto;
+        background: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 1.9rem;
+        transition: none;
+        transform: translateY(0);
+        z-index: 1001;
+    }
 }
 
 /* Hero */
@@ -736,30 +769,6 @@ body,
             "hero hero"
             "about skills"
             "projects projects";
-    }
-
-    /* Navbar */
-    .navbar {
-        padding: 0.9rem 1.9rem;
-    }
-
-    .menu-btn {
-        display: none;
-    }
-
-    .nav-links {
-        position: sticky;
-        top: auto;
-        left: auto;
-        height: auto;
-        background: none;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        gap: 1.9rem;
-        transition: none;
-        transform: translateY(0);
-        z-index: 1001;
     }
 
     /* Hero */
