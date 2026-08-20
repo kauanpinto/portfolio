@@ -657,10 +657,15 @@ body,
     outline: 1px solid var(--bg-primary);
     align-items: center;
     overflow: hidden;
-}
 
-.projects-container h2 {
-    color: var(--text-primary);
+    h2 {
+        color: var(--text-primary);
+    }
+
+    @media (min-width: 1024px) {
+        grid-area: projects;
+        padding: 7.5rem 1.9rem;
+    }
 }
 
 .projects {
@@ -669,6 +674,13 @@ body,
     align-items: center;
     align-content: center;
     gap: 2rem;
+
+    @media (min-width: 1024px) {
+        display: grid;
+        grid-template-columns: repeat(2, 20rem);
+        justify-content: center;
+        gap: 4rem;
+    }
 }
 
 .project-card {
@@ -687,34 +699,42 @@ body,
         scale 0.3s ease,
         transform 0.6s ease,
         opacity 0.6s ease;
-}
 
-.project-card:nth-child(odd) {
-    transform: translateX(-50%);
-}
+    &:nth-child(odd) {
+        transform: translateX(-50%);
+    }
 
-.project-card:nth-child(even) {
-    transform: translateX(50%);
-}
+    &:nth-child(even) {
+        transform: translateX(50%);
+    }
 
-.project-card.visible {
-    transform: translateX(0);
-    opacity: 1;
-}
+    &.visible {
+        transform: translateX(0);
+        opacity: 1;
+    }
 
-.project-card:active {
-    transform: scale(0.98);
-}
+    &:active {
+        transform: scale(0.98);
+    }
 
-.project-card > img {
-    width: 100%;
-    height: 50%;
-    object-fit: cover;
-    border-radius: 16px 16px 0 0;
-}
+    > img {
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+        border-radius: 16px 16px 0 0;
+    }
 
-.project-card h3 {
-    color: var(--text-primary);
+    h3 {
+        color: var(--text-primary);
+    }
+
+    @media (min-width: 1024px) {
+        width: 20rem;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
 }
 
 .project-link {
@@ -729,19 +749,19 @@ body,
     color: var(--text-primary);
     outline: 1px solid var(--bg-primary);
     transition: 0.3s ease;
-}
 
-.project-link:hover {
-    text-decoration: underline;
-    color: var(--color-primary);
-}
+    &:hover {
+        text-decoration: underline;
+        color: var(--color-primary);
 
-.project-link:hover h3 {
-    color: var(--color-primary);
-}
+        h3 {
+            color: var(--color-primary);
+        }
+    }
 
-.project-link p {
-    line-height: 1.4rem;
+    p {
+        line-height: 1.4rem;
+    }
 }
 
 .badges {
@@ -750,12 +770,12 @@ body,
     gap: 0.5rem;
     padding: 0.2rem;
     border-radius: 0.5rem;
-}
 
-.badges > img {
-    width: 1.7rem;
-    height: 1.7rem;
-    object-fit: cover;
+    img {
+        width: 1.7rem;
+        height: 1.7rem;
+        object-fit: cover;
+    }
 }
 
 /* Footer */
@@ -788,27 +808,6 @@ body,
             "hero hero"
             "about skills"
             "projects projects";
-    }
-
-    /* Projects */
-    .projects-container {
-        grid-area: projects;
-        padding: 7.5rem 1.9rem;
-    }
-
-    .projects {
-        display: grid;
-        grid-template-columns: repeat(2, 20rem);
-        justify-content: center;
-        gap: 4rem;
-    }
-
-    .project-card {
-        width: 20rem;
-    }
-
-    .project-card:hover {
-        transform: scale(1.05);
     }
 
     /* Footer */
