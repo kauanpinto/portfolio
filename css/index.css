@@ -371,7 +371,7 @@ body,
     &.active {
         transform: translateY(0);
     }
-    
+
     a {
         display: flex;
         text-decoration: none;
@@ -406,6 +406,44 @@ body,
     gap: 1.9rem;
     padding: 1.9rem;
     outline: 1px solid var(--bg-primary);
+
+    > .btn {
+        text-decoration: none;
+        width: 13.5rem;
+        height: 3rem;
+        font-size: 1rem;
+        border-radius: 24px;
+        gap: 0.6rem;
+        background: radial-gradient(
+            var(--color-primary),
+            var(--color-secondary)
+        );
+        color: var(--text-secondary);
+        outline: 1px solid transparent;
+        transition: transform 0.3s ease;
+
+        i {
+            font-size: 1.5rem;
+            transform: translateY(0.7px);
+        }
+
+        &:hover {
+            transform: scale(1.03);
+            color: var(--color-secondary);
+            background: transparent;
+            outline-color: var(--color-secondary);
+        }
+
+        &:active {
+            transform: scale(0.97);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        grid-area: hero;
+        min-height: auto;
+        padding: 7.5rem 1.9rem;
+    }
 }
 
 .hero-img-card {
@@ -419,28 +457,28 @@ body,
     border-radius: 50%;
     overflow: hidden;
     background: var(--bg-tertiary);
-}
 
-.hero-img-card::before {
-    content: "";
-    position: absolute;
-    inset: -60%;
-    background: conic-gradient(
-        from 0deg,
-        transparent 0deg,
-        var(--color-secondary) 180deg,
-        var(--color-primary) 360deg
-    );
-    animation: spin 3s linear infinite;
-    will-change: transform;
-}
+    &::before {
+        content: "";
+        position: absolute;
+        inset: -60%;
+        background: conic-gradient(
+            from 0deg,
+            transparent 0deg,
+            var(--color-secondary) 180deg,
+            var(--color-primary) 360deg
+        );
+        animation: spin 3s linear infinite;
+        will-change: transform;
+    }
 
-.hero-img-card::after {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    background: var(--bg-tertiary);
-    border-radius: 50%;
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        background: var(--bg-tertiary);
+        border-radius: 50%;
+    }
 }
 
 .hero-img {
@@ -458,15 +496,15 @@ body,
     text-align: center;
     margin-top: 1.25rem;
     gap: 1.25rem;
-}
 
-.hero-text h1 {
-    color: var(--color-secondary);
-}
+    h1 {
+        color: var(--color-secondary);
+    }
 
-.hero-text p {
-    line-height: 1.4rem;
-    color: var(--text-primary);
+    p {
+        line-height: 1.4rem;
+        color: var(--text-primary);
+    }
 }
 
 .social-media {
@@ -474,64 +512,35 @@ body,
     align-items: center;
     justify-content: center;
     gap: 2.5rem;
-}
 
-.social-media > .btn {
-    font-size: 1.7rem;
-    width: 2.8rem;
-    height: 2.8rem;
-    outline: 1px solid var(--color-primary);
-    color: var(--color-secondary);
-    transition: transform 0.3s ease;
-}
+    .btn {
+        font-size: 1.7rem;
+        width: 2.8rem;
+        height: 2.8rem;
+        outline: 1px solid var(--color-primary);
+        color: var(--color-secondary);
+        transition: transform 0.3s ease;
 
-.social-media > .btn i {
-    line-height: 1;
-    transform: translateY(1px);
-}
+        i {
+            line-height: 1;
+            transform: translateY(1px);
+        }
 
-.social-media > .btn:hover {
-    transform: scale(1.1);
-    color: var(--text-secondary);
-    background: radial-gradient(
-        circle,
-        var(--color-primary),
-        var(--color-secondary)
-    );
-    outline-color: transparent;
-}
+        &:hover {
+            transform: scale(1.1);
+            color: var(--text-secondary);
+            background: radial-gradient(
+                circle,
+                var(--color-primary),
+                var(--color-secondary)
+            );
+            outline-color: transparent;
+        }
 
-.social-media > .btn:active {
-    transform: scale(0.95);
-}
-
-.hero-container > .btn {
-    text-decoration: none;
-    width: 13.5rem;
-    height: 3rem;
-    font-size: 1rem;
-    border-radius: 24px;
-    gap: 0.6rem;
-    background: radial-gradient(var(--color-primary), var(--color-secondary));
-    color: var(--text-secondary);
-    outline: 1px solid transparent;
-    transition: transform 0.3s ease;
-}
-
-.hero-container > .btn i {
-    font-size: 1.5rem;
-    transform: translateY(0.7px);
-}
-
-.hero-container > .btn:hover {
-    transform: scale(1.03);
-    color: var(--color-secondary);
-    background: transparent;
-    outline-color: var(--color-secondary);
-}
-
-.hero-container > .btn:active {
-    transform: scale(0.97);
+        &:active {
+            transform: scale(0.95);
+        }
+    }
 }
 
 /* About */
@@ -769,13 +778,6 @@ body,
             "hero hero"
             "about skills"
             "projects projects";
-    }
-
-    /* Hero */
-    .hero-container {
-        grid-area: hero;
-        min-height: auto;
-        padding: 7.5rem 1.9rem;
     }
 
     /* About */
