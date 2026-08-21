@@ -79,64 +79,13 @@ navLinkItems.forEach((link) => {
             e.preventDefault();
             targetEl.scrollIntoView({
                 behavior: "smooth",
-                block: "start"
+                block: "start",
             });
         } else {
             window.scrollTo(0, scrollY);
         }
     });
 });
-
-// Glow effect
-let targetX = window.innerWidth / 2;
-let targetY = window.innerHeight / 2;
-let currentX = targetX;
-let currentY = targetY;
-let idleTimer = null;
-const glow = document.getElementById("glow");
-const IDLE_DELAY = 300;
-
-function updateTarget(x, y) {
-    targetX = x;
-    targetY = y;
-
-    glow.classList.add("active");
-    clearTimeout(idleTimer);
-
-    idleTimer = setTimeout(() => {
-        glow.classList.remove("active");
-    }, IDLE_DELAY);
-}
-
-window.addEventListener("mousemove", (e) => updateTarget(e.clientX, e.clientY));
-
-window.addEventListener(
-    "touchmove",
-    (e) => {
-        const t = e.touches[0];
-        updateTarget(t.clientX, t.clientY);
-    },
-    { passive: true },
-);
-
-window.addEventListener("touchend", () => {
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(() => glow.classList.remove("active"), IDLE_DELAY);
-});
-
-function loop() {
-    const ease = 0.1;
-
-    currentX += (targetX - currentX) * ease;
-    currentY += (targetY - currentY) * ease;
-
-    glow.style.setProperty("--x", currentX + "px");
-    glow.style.setProperty("--y", currentY + "px");
-
-    requestAnimationFrame(loop);
-}
-
-loop();
 
 // Project card animation
 const projectCards = document.querySelectorAll(".project-card");

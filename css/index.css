@@ -14,8 +14,6 @@
     --text-primary: hsl(0, 0%, 5%);
     --text-secondary: hsl(0, 0%, 95%);
     --shadown: hsla(0, 0%, 0%, 0.3);
-    --glow-primary: hsla(201, 100%, 68%, 0.12);
-    --glow-secondary: hsla(190, 100%, 48%, 0.06);
 }
 
 :root.dark {
@@ -129,26 +127,6 @@ body,
 
 .cg-small {
     font-size: clamp(0.88rem, calc(0.795rem + 0.398vw), 1.09rem);
-}
-
-/* Glow effect */
-.glow {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background: radial-gradient(
-        9rem circle at var(--x, 50%) var(--y, 50%),
-        var(--glow-primary),
-        var(--glow-secondary) 35%,
-        transparent 60%
-    );
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.glow.active {
-    opacity: 1;
 }
 
 /* Navbar */
